@@ -12,6 +12,16 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
+  "files": ["lib"],
+  "main": "lib/drag-box.umd.js",
+  "module": "lib/drag-box.mjs",
+  "exports": {
+    "./lib/style.css":"./lib/style.css",
+    ".":{
+      "import" : "./lib/drag-box.mjs",
+      "require": "./lib/drag-box.umd.js"
+    }
+  },
   "dependencies": {
     "vue": "^3.2.47"
   },
