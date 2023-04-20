@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { onMounted, ref, type Ref } from 'vue'
-import { init, onHeaderDrag, onFooterResize } from './script';
+import { onMounted, ref } from 'vue'
+import { init, onHeaderDrag, onFooterResize } from './script'
 const dragBox = ref<HTMLElement | null>(null)
 const dragBoxHeader = ref<HTMLElement | null>(null)
 const dragBoxFooter = ref<HTMLElement | null>(null)
@@ -11,9 +11,9 @@ const props = defineProps<{
   top: number
 }>()
 onMounted(() => {
-  init(props, dragBox as Ref<HTMLElement>)
-  onHeaderDrag(props, dragBox as Ref<HTMLElement>, dragBoxHeader as Ref<HTMLElement>)
-  onFooterResize(props, dragBox as Ref<HTMLElement>, dragBoxFooter as Ref<HTMLElement>)
+  init(props, dragBox.value!)
+  onHeaderDrag(dragBox.value!, dragBoxHeader.value!)
+  onFooterResize(dragBox.value!, dragBoxFooter.value!)
 })
 </script>
 <template>
